@@ -16,6 +16,11 @@ def recognize_faces(image_path):
     for (x, y, w, h) in faces:
         cv2.rectangle(image, (x, y), (x+w, y+h), (255, 0, 0), 2)
 
+    # Add text to display the number of faces detected
+    num_faces = len(faces)
+    text = f"Number of faces detected: {num_faces}"
+    cv2.putText(image, text, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 0), 2)
+
     # Display the result
     cv2.imshow('Face Recognition', image)
     cv2.waitKey(0)
@@ -24,4 +29,3 @@ def recognize_faces(image_path):
 # Example usage
 image_path = 'img1.webp'
 recognize_faces(image_path)
-
